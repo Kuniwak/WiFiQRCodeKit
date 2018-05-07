@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WiFiQRCodeKit"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Library helping Wi-Fi configurations over QR codes"
 
   # This description is used to generate tags and improve search results.
