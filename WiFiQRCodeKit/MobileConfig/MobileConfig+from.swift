@@ -57,8 +57,8 @@ fileprivate extension MobileConfig.PayloadIdentifier {
 }
 
 
-fileprivate extension MobileConfig.WiFi.EncryptionType {
-    fileprivate static func from(encryptionType: WiFiQRCode.EncryptionType) -> MobileConfig.WiFi.EncryptionType {
+fileprivate extension WiFiMobileConfig.EncryptionType {
+    fileprivate static func from(encryptionType: WiFiQRCode.EncryptionType) -> WiFiMobileConfig.EncryptionType {
         switch encryptionType {
         case .none:
             return .none

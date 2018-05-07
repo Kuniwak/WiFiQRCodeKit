@@ -3,6 +3,9 @@ import Foundation
 
 
 public struct MobileConfig: Equatable {
+    // XXX: For compatible.
+    typealias WiFi = WiFiMobileConfig
+
     // Optional. Array of payload dictionaries. Not present if IsEncrypted is true.
     public let contents: [PayloadContent]?
 
@@ -197,7 +200,7 @@ public struct MobileConfig: Equatable {
 
 
     public enum PayloadContent: Equatable {
-        case wiFi(WiFi)
+        case wiFi(WiFiMobileConfig)
 
 
         public var type: PayloadType {

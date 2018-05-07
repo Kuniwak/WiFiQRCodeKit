@@ -19,7 +19,7 @@
 		2475EA6205D9BC38EF8133D1 /* PlistDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E4C6359DE2CB30B429E8 /* PlistDocument.swift */; };
 		2475EAADC68C1E708E46196C /* PlistSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E2E849952516DB5426E6 /* PlistSerializable.swift */; };
 		2475EAC17C2D780D68CF4CEA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EF201A9153F9FEB3AA70 /* Parser.swift */; };
-		2475EED6957CF2A954F67A04 /* MobileConfig.WiFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E0FA3B231BB1CBBE8ACE /* MobileConfig.WiFi.swift */; };
+		2475EED6957CF2A954F67A04 /* WiFiMobileConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E0FA3B231BB1CBBE8ACE /* WiFiMobileConfig.swift */; };
 		2475EF61BA98EA5598B1CA32 /* MobileConfig.Installer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E9B1073BC10569221CBC /* MobileConfig.Installer.swift */; };
 		5B71FBBC209DDEA0000D274F /* WiFiQRCodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B71FBB2209DDEA0000D274F /* WiFiQRCodeKit.framework */; };
 		5B71FBC1209DDEA0000D274F /* WiFiQRCodeKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBC0209DDEA0000D274F /* WiFiQRCodeKitTests.swift */; };
@@ -78,7 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2475E0FA3B231BB1CBBE8ACE /* MobileConfig.WiFi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileConfig.WiFi.swift; sourceTree = "<group>"; };
+		2475E0FA3B231BB1CBBE8ACE /* WiFiMobileConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiMobileConfig.swift; sourceTree = "<group>"; };
 		2475E108F954022365749AA5 /* MobileConfig+from.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MobileConfig+from.swift"; sourceTree = "<group>"; };
 		2475E18442FE447CAA0AE528 /* ParserCombinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserCombinator.swift; sourceTree = "<group>"; };
 		2475E1A15B8F919BA07BA269 /* MobileConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileConfig.swift; sourceTree = "<group>"; };
@@ -163,13 +163,13 @@
 		2475E35BA3C0E7B1EC6340C7 /* WiFiQRCode */ = {
 			isa = PBXGroup;
 			children = (
+				2475EC73345CC8BC3BCAD008 /* MeCardParser.swift */,
+				2475ECBEBE19604A7E666DEF /* MeCardSyntax.swift */,
+				2475EF201A9153F9FEB3AA70 /* Parser.swift */,
+				2475E18442FE447CAA0AE528 /* ParserCombinator.swift */,
 				2475E79647527C073C626C71 /* WiFiQRCode+EncryptionType.swift */,
 				2475E64C2DA5C7BB6928833E /* WiFiQRCode+validate.swift */,
 				2475E42CA817ED5DC83EC023 /* WiFiQRCode.swift */,
-				2475EF201A9153F9FEB3AA70 /* Parser.swift */,
-				2475E18442FE447CAA0AE528 /* ParserCombinator.swift */,
-				2475EC73345CC8BC3BCAD008 /* MeCardParser.swift */,
-				2475ECBEBE19604A7E666DEF /* MeCardSyntax.swift */,
 			);
 			path = WiFiQRCode;
 			sourceTree = "<group>";
@@ -186,12 +186,12 @@
 		2475E5429B5A5F1DF8CDBE4B /* MobileConfig */ = {
 			isa = PBXGroup;
 			children = (
-				2475E1A15B8F919BA07BA269 /* MobileConfig.swift */,
-				2475E0FA3B231BB1CBBE8ACE /* MobileConfig.WiFi.swift */,
-				2475E2E849952516DB5426E6 /* PlistSerializable.swift */,
-				2475E108F954022365749AA5 /* MobileConfig+from.swift */,
-				2475E4C6359DE2CB30B429E8 /* PlistDocument.swift */,
 				2475E4999AC4805780968C18 /* Installer */,
+				2475E108F954022365749AA5 /* MobileConfig+from.swift */,
+				2475E1A15B8F919BA07BA269 /* MobileConfig.swift */,
+				2475E4C6359DE2CB30B429E8 /* PlistDocument.swift */,
+				2475E2E849952516DB5426E6 /* PlistSerializable.swift */,
+				2475E0FA3B231BB1CBBE8ACE /* WiFiMobileConfig.swift */,
 			);
 			path = MobileConfig;
 			sourceTree = "<group>";
@@ -199,9 +199,9 @@
 		5B71FBA8209DDEA0000D274F = {
 			isa = PBXGroup;
 			children = (
+				5B71FBB3209DDEA0000D274F /* Products */,
 				5B71FBB4209DDEA0000D274F /* WiFiQRCodeKit */,
 				5B71FBBF209DDEA0000D274F /* WiFiQRCodeKitTests */,
-				5B71FBB3209DDEA0000D274F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,17 +217,17 @@
 		5B71FBB4209DDEA0000D274F /* WiFiQRCodeKit */ = {
 			isa = PBXGroup;
 			children = (
-				5B71FBD0209DDF16000D274F /* Formatter.swift */,
-				5B71FBD6209DDF17000D274F /* Password.swift */,
-				5B71FBD7209DDF17000D274F /* Password+validate.swift */,
-				5B71FBD9209DDF17000D274F /* SSID.swift */,
-				5B71FBDB209DDF18000D274F /* SSID+validate.swift */,
-				5B71FBD2209DDF16000D274F /* ValidationResult.swift */,
-				5B71FBB5209DDEA0000D274F /* WiFiQRCodeKit.h */,
-				5B71FBB6209DDEA0000D274F /* Info.plist */,
-				EA2167FEC71E32B49145ED38 /* MIMEType.swift */,
 				2475E5429B5A5F1DF8CDBE4B /* MobileConfig */,
 				2475E35BA3C0E7B1EC6340C7 /* WiFiQRCode */,
+				5B71FBD0209DDF16000D274F /* Formatter.swift */,
+				5B71FBB6209DDEA0000D274F /* Info.plist */,
+				EA2167FEC71E32B49145ED38 /* MIMEType.swift */,
+				5B71FBD7209DDF17000D274F /* Password+validate.swift */,
+				5B71FBD6209DDF17000D274F /* Password.swift */,
+				5B71FBDB209DDF18000D274F /* SSID+validate.swift */,
+				5B71FBD9209DDF17000D274F /* SSID.swift */,
+				5B71FBD2209DDF16000D274F /* ValidationResult.swift */,
+				5B71FBB5209DDEA0000D274F /* WiFiQRCodeKit.h */,
 			);
 			path = WiFiQRCodeKit;
 			sourceTree = "<group>";
@@ -235,13 +235,13 @@
 		5B71FBBF209DDEA0000D274F /* WiFiQRCodeKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B71FBF4209DDF34000D274F /* FormatterTests.swift */,
-				5B71FBF3209DDF34000D274F /* ParserTests.swift */,
-				5B71FBC0209DDEA0000D274F /* WiFiQRCodeKitTests.swift */,
-				5B71FBC2209DDEA0000D274F /* Info.plist */,
 				EA216E6EBEA4F3D34B351787 /* MirrorDiffKit */,
-				EA216D9809F105CC9D9CD28D /* PlistDocumentTests.swift */,
+				5B71FBF4209DDF34000D274F /* FormatterTests.swift */,
+				5B71FBC2209DDEA0000D274F /* Info.plist */,
 				EA216E11001E8E569855A001 /* MobileConfigTests.swift */,
+				5B71FBF3209DDF34000D274F /* ParserTests.swift */,
+				EA216D9809F105CC9D9CD28D /* PlistDocumentTests.swift */,
+				5B71FBC0209DDEA0000D274F /* WiFiQRCodeKitTests.swift */,
 			);
 			path = WiFiQRCodeKitTests;
 			sourceTree = "<group>";
@@ -249,36 +249,36 @@
 		EA216E6EBEA4F3D34B351787 /* MirrorDiffKit */ = {
 			isa = PBXGroup;
 			children = (
-				EA216A63B3184C789852F6A3 /* Util.swift */,
-				EA21674CD7ADD9F16259BB0C /* Dwifft.swift */,
-				EA2169EA6B5163C65E2DCCD7 /* Diffable.swift */,
-				EA216779D2174F324AC83658 /* PrettyLine.swift */,
-				EA21657F90C8468ED2FDE8D6 /* DiffableSet.swift */,
-				EA216736F1A9C94376E00A66 /* Transformer.swift */,
-				EA216E5C7011926FC4EE08D8 /* EnumCaseName.swift */,
+				EA216709763A769009830075 /* ComparableDifferentiaUnits.swift */,
+				EA216D3714F956480DF21D0F /* Diffable+CustomStringConvertible.swift */,
+				EA21629DA59B56DBE74BFFE6 /* Diffable+Equatable.swift */,
+				EA2160BD315F901C7D12F1E3 /* Diffable+Hashable.swift */,
+				EA216659225F6C48C6C99CD4 /* Diffable+PrettyPrintable.swift */,
+				EA216C0C3472868A7A76A9AC /* Diffable+RoughEquatable.swift */,
+				EA216DB875D16172BDE62D48 /* Diffable.EnumEntry+CustomStringConvertible.swift */,
+				EA2160C28777744AD6B47F1A /* Diffable.EnumEntry+Equatable.swift */,
+				EA2162036D54542475306C88 /* Diffable.EnumEntry+PrettyPrintable.swift */,
 				EA2166728C09142C966FAC48 /* Diffable.diff.swift */,
 				EA216E81AE99A1E266E1077F /* Diffable.from.swift */,
+				EA2169EA6B5163C65E2DCCD7 /* Diffable.swift */,
+				EA216AB1CBBF9C264BE1661D /* DiffableConvertible.swift */,
+				EA21655933725D8EC2D2E11F /* DiffableDictionary.swift */,
+				EA2164BDC82A9A6ACE9A426B /* DiffableSequence.swift */,
+				EA21657F90C8468ED2FDE8D6 /* DiffableSet.swift */,
+				EA2162BFA9AECEEE77F112E6 /* DifferentiaUnit+PrettyPrintable.swift */,
+				EA2160B30128B3E5CD519464 /* DifferentiaUnit.DictionaryType.swift */,
+				EA2163FAB522815B12FBA6DE /* DifferentiaUnit.SequenceType.swift */,
+				EA2167C9B1F74B3A41602D91 /* DifferentiaUnit.swift */,
+				EA21674CD7ADD9F16259BB0C /* Dwifft.swift */,
+				EA216E5C7011926FC4EE08D8 /* EnumCaseName.swift */,
 				EA21622AFCBFF5AB5ECE9EE3 /* MirrorDiffKit.swift */,
+				EA216779D2174F324AC83658 /* PrettyLine.swift */,
+				EA216CF75D4A97A84C1128B7 /* PrettyPrintable.swift */,
 				EA216E7CB8A1475021DFCD7A /* PrettyPrinter.swift */,
 				EA2168BCC3D2535C1060A08F /* RoughEquatable.swift */,
-				EA2167C9B1F74B3A41602D91 /* DifferentiaUnit.swift */,
-				EA216CF75D4A97A84C1128B7 /* PrettyPrintable.swift */,
-				EA2164BDC82A9A6ACE9A426B /* DiffableSequence.swift */,
-				EA2160BD315F901C7D12F1E3 /* Diffable+Hashable.swift */,
-				EA21629DA59B56DBE74BFFE6 /* Diffable+Equatable.swift */,
-				EA21655933725D8EC2D2E11F /* DiffableDictionary.swift */,
-				EA216AB1CBBF9C264BE1661D /* DiffableConvertible.swift */,
-				EA216C0C3472868A7A76A9AC /* Diffable+RoughEquatable.swift */,
-				EA216659225F6C48C6C99CD4 /* Diffable+PrettyPrintable.swift */,
-				EA216709763A769009830075 /* ComparableDifferentiaUnits.swift */,
+				EA216736F1A9C94376E00A66 /* Transformer.swift */,
 				EA216EF09CC1E76AFBE8B74E /* TupleRepresentationDetector.swift */,
-				EA2160C28777744AD6B47F1A /* Diffable.EnumEntry+Equatable.swift */,
-				EA2163FAB522815B12FBA6DE /* DifferentiaUnit.SequenceType.swift */,
-				EA2160B30128B3E5CD519464 /* DifferentiaUnit.DictionaryType.swift */,
-				EA2162BFA9AECEEE77F112E6 /* DifferentiaUnit+PrettyPrintable.swift */,
-				EA216D3714F956480DF21D0F /* Diffable+CustomStringConvertible.swift */,
-				EA2162036D54542475306C88 /* Diffable.EnumEntry+PrettyPrintable.swift */,
-				EA216DB875D16172BDE62D48 /* Diffable.EnumEntry+CustomStringConvertible.swift */,
+				EA216A63B3184C789852F6A3 /* Util.swift */,
 			);
 			path = MirrorDiffKit;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 				5B71FBEC209DDF18000D274F /* SSID.swift in Sources */,
 				EA21656022150A41D90D9402 /* MIMEType.swift in Sources */,
 				2475E5CE81082897ED489192 /* MobileConfig.swift in Sources */,
-				2475EED6957CF2A954F67A04 /* MobileConfig.WiFi.swift in Sources */,
+				2475EED6957CF2A954F67A04 /* WiFiMobileConfig.swift in Sources */,
 				2475EAADC68C1E708E46196C /* PlistSerializable.swift in Sources */,
 				2475EA25D9291DC473AD9EEF /* MobileConfig+from.swift in Sources */,
 				2475EA6205D9BC38EF8133D1 /* PlistDocument.swift in Sources */,
@@ -602,11 +602,7 @@
 				INFOPLIST_FILE = WiFiQRCodeKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -629,11 +625,7 @@
 				INFOPLIST_FILE = WiFiQRCodeKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -648,11 +640,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WiFiQRCodeKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -666,11 +654,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WiFiQRCodeKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
