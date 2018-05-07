@@ -1,0 +1,714 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2475E04414C7D72BB0B7F4D6 /* MeCardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EC73345CC8BC3BCAD008 /* MeCardParser.swift */; };
+		2475E3B6BDF3C909EEFAC686 /* WiFiQRCode+validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E64C2DA5C7BB6928833E /* WiFiQRCode+validate.swift */; };
+		2475E48844C99463A4277FDF /* ParserCombinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E18442FE447CAA0AE528 /* ParserCombinator.swift */; };
+		2475E5CE81082897ED489192 /* MobileConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E1A15B8F919BA07BA269 /* MobileConfig.swift */; };
+		2475E634FB0F5EF9FFE2DC83 /* MeCardSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475ECBEBE19604A7E666DEF /* MeCardSyntax.swift */; };
+		2475E6CA13499A49AA243EAB /* WiFiQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E42CA817ED5DC83EC023 /* WiFiQRCode.swift */; };
+		2475E73552C276BB6F28DC8A /* WiFiQRCode+EncryptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E79647527C073C626C71 /* WiFiQRCode+EncryptionType.swift */; };
+		2475E81EAF15FA5E2F70138D /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EDFB71EFC02B0768E64C /* URLOpener.swift */; };
+		2475EA25D9291DC473AD9EEF /* MobileConfig+from.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E108F954022365749AA5 /* MobileConfig+from.swift */; };
+		2475EA6205D9BC38EF8133D1 /* PlistDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E4C6359DE2CB30B429E8 /* PlistDocument.swift */; };
+		2475EAADC68C1E708E46196C /* PlistSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E2E849952516DB5426E6 /* PlistSerializable.swift */; };
+		2475EAC17C2D780D68CF4CEA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475EF201A9153F9FEB3AA70 /* Parser.swift */; };
+		2475EED6957CF2A954F67A04 /* MobileConfig.WiFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E0FA3B231BB1CBBE8ACE /* MobileConfig.WiFi.swift */; };
+		2475EF61BA98EA5598B1CA32 /* MobileConfig.Installer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475E9B1073BC10569221CBC /* MobileConfig.Installer.swift */; };
+		5B71FBBC209DDEA0000D274F /* WiFiQRCodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B71FBB2209DDEA0000D274F /* WiFiQRCodeKit.framework */; };
+		5B71FBC1209DDEA0000D274F /* WiFiQRCodeKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBC0209DDEA0000D274F /* WiFiQRCodeKitTests.swift */; };
+		5B71FBC3209DDEA0000D274F /* WiFiQRCodeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B71FBB5209DDEA0000D274F /* WiFiQRCodeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B71FBE3209DDF18000D274F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBD0209DDF16000D274F /* Formatter.swift */; };
+		5B71FBE5209DDF18000D274F /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBD2209DDF16000D274F /* ValidationResult.swift */; };
+		5B71FBE9209DDF18000D274F /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBD6209DDF17000D274F /* Password.swift */; };
+		5B71FBEA209DDF18000D274F /* Password+validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBD7209DDF17000D274F /* Password+validate.swift */; };
+		5B71FBEC209DDF18000D274F /* SSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBD9209DDF17000D274F /* SSID.swift */; };
+		5B71FBEE209DDF18000D274F /* SSID+validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBDB209DDF18000D274F /* SSID+validate.swift */; };
+		5B71FBF7209DDF34000D274F /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBF3209DDF34000D274F /* ParserTests.swift */; };
+		5B71FBF8209DDF34000D274F /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71FBF4209DDF34000D274F /* FormatterTests.swift */; };
+		EA21601F645A8EF464CA4279 /* Diffable.diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2166728C09142C966FAC48 /* Diffable.diff.swift */; };
+		EA21603E79C613797A7CCBF5 /* Diffable+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216D3714F956480DF21D0F /* Diffable+CustomStringConvertible.swift */; };
+		EA21607C40D936949E5EE8F8 /* TupleRepresentationDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216EF09CC1E76AFBE8B74E /* TupleRepresentationDetector.swift */; };
+		EA2160899A2DB3851248FECD /* Diffable+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2160BD315F901C7D12F1E3 /* Diffable+Hashable.swift */; };
+		EA2160A86107B097363E64ED /* DiffableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21655933725D8EC2D2E11F /* DiffableDictionary.swift */; };
+		EA21610BCD672569380B06DF /* PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216CF75D4A97A84C1128B7 /* PrettyPrintable.swift */; };
+		EA2161260B110F759000ED64 /* MirrorDiffKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21622AFCBFF5AB5ECE9EE3 /* MirrorDiffKit.swift */; };
+		EA2161B5FB14DA74F7893DF5 /* Diffable.EnumEntry+PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2162036D54542475306C88 /* Diffable.EnumEntry+PrettyPrintable.swift */; };
+		EA21626A2394A7D3C3D7ABCA /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216A63B3184C789852F6A3 /* Util.swift */; };
+		EA2163563772B7D936C747D0 /* EnumCaseName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216E5C7011926FC4EE08D8 /* EnumCaseName.swift */; };
+		EA21649BDD5E2B8D0AE2E8D8 /* Diffable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21629DA59B56DBE74BFFE6 /* Diffable+Equatable.swift */; };
+		EA2164F54DCA69DB20E10DD4 /* ComparableDifferentiaUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216709763A769009830075 /* ComparableDifferentiaUnits.swift */; };
+		EA21656022150A41D90D9402 /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2167FEC71E32B49145ED38 /* MIMEType.swift */; };
+		EA2165826AE9923A94E1144E /* Diffable+RoughEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216C0C3472868A7A76A9AC /* Diffable+RoughEquatable.swift */; };
+		EA21663BFCAD7E5653128818 /* DifferentiaUnit.SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2163FAB522815B12FBA6DE /* DifferentiaUnit.SequenceType.swift */; };
+		EA21663C90C84582D81CEECB /* PlistDocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216D9809F105CC9D9CD28D /* PlistDocumentTests.swift */; };
+		EA216773BE17E03C8EFE0DD3 /* RoughEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2168BCC3D2535C1060A08F /* RoughEquatable.swift */; };
+		EA21678CEEBF133B7029EE75 /* Diffable+PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216659225F6C48C6C99CD4 /* Diffable+PrettyPrintable.swift */; };
+		EA2168222127EBE5CFD34FB5 /* DiffableConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216AB1CBBF9C264BE1661D /* DiffableConvertible.swift */; };
+		EA216A0C25CC19ABB83588C6 /* Diffable.EnumEntry+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216DB875D16172BDE62D48 /* Diffable.EnumEntry+CustomStringConvertible.swift */; };
+		EA216A3C3C543F6293EBEC10 /* DifferentiaUnit+PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2162BFA9AECEEE77F112E6 /* DifferentiaUnit+PrettyPrintable.swift */; };
+		EA216B7053936B4126DC7CC2 /* MobileConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216E11001E8E569855A001 /* MobileConfigTests.swift */; };
+		EA216B7A7FC8673CD7B2B73C /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216736F1A9C94376E00A66 /* Transformer.swift */; };
+		EA216B92F51691B55E62908F /* Dwifft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21674CD7ADD9F16259BB0C /* Dwifft.swift */; };
+		EA216BC14D1CFCEE1FFA5233 /* Diffable.EnumEntry+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2160C28777744AD6B47F1A /* Diffable.EnumEntry+Equatable.swift */; };
+		EA216BC8B166884BC7F8FE12 /* DifferentiaUnit.DictionaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2160B30128B3E5CD519464 /* DifferentiaUnit.DictionaryType.swift */; };
+		EA216CBED293C99FF1D5EB30 /* PrettyPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216E7CB8A1475021DFCD7A /* PrettyPrinter.swift */; };
+		EA216CE32B27A0D606CC0133 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2169EA6B5163C65E2DCCD7 /* Diffable.swift */; };
+		EA216CF42EBD7126F22D7AF7 /* PrettyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216779D2174F324AC83658 /* PrettyLine.swift */; };
+		EA216D64D345DF5258FC90C4 /* DiffableSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2164BDC82A9A6ACE9A426B /* DiffableSequence.swift */; };
+		EA216E06D2BA17B39D3E898D /* Diffable.from.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA216E81AE99A1E266E1077F /* Diffable.from.swift */; };
+		EA216F351C594C787F2EFB13 /* DiffableSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21657F90C8468ED2FDE8D6 /* DiffableSet.swift */; };
+		EA216F7A298DCC377D463214 /* DifferentiaUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2167C9B1F74B3A41602D91 /* DifferentiaUnit.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B71FBBD209DDEA0000D274F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B71FBA9209DDEA0000D274F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B71FBB1209DDEA0000D274F;
+			remoteInfo = WiFiQRCodeKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2475E0FA3B231BB1CBBE8ACE /* MobileConfig.WiFi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileConfig.WiFi.swift; sourceTree = "<group>"; };
+		2475E108F954022365749AA5 /* MobileConfig+from.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MobileConfig+from.swift"; sourceTree = "<group>"; };
+		2475E18442FE447CAA0AE528 /* ParserCombinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserCombinator.swift; sourceTree = "<group>"; };
+		2475E1A15B8F919BA07BA269 /* MobileConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileConfig.swift; sourceTree = "<group>"; };
+		2475E2E849952516DB5426E6 /* PlistSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistSerializable.swift; sourceTree = "<group>"; };
+		2475E42CA817ED5DC83EC023 /* WiFiQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiQRCode.swift; sourceTree = "<group>"; };
+		2475E4C6359DE2CB30B429E8 /* PlistDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDocument.swift; sourceTree = "<group>"; };
+		2475E64C2DA5C7BB6928833E /* WiFiQRCode+validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WiFiQRCode+validate.swift"; sourceTree = "<group>"; };
+		2475E79647527C073C626C71 /* WiFiQRCode+EncryptionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WiFiQRCode+EncryptionType.swift"; sourceTree = "<group>"; };
+		2475E9B1073BC10569221CBC /* MobileConfig.Installer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileConfig.Installer.swift; sourceTree = "<group>"; };
+		2475EC73345CC8BC3BCAD008 /* MeCardParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCardParser.swift; sourceTree = "<group>"; };
+		2475ECBEBE19604A7E666DEF /* MeCardSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCardSyntax.swift; sourceTree = "<group>"; };
+		2475EDFB71EFC02B0768E64C /* URLOpener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
+		2475EF201A9153F9FEB3AA70 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		5B71FBB2209DDEA0000D274F /* WiFiQRCodeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiFiQRCodeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B71FBB5209DDEA0000D274F /* WiFiQRCodeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WiFiQRCodeKit.h; sourceTree = "<group>"; };
+		5B71FBB6209DDEA0000D274F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B71FBBB209DDEA0000D274F /* WiFiQRCodeKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiFiQRCodeKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B71FBC0209DDEA0000D274F /* WiFiQRCodeKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiQRCodeKitTests.swift; sourceTree = "<group>"; };
+		5B71FBC2209DDEA0000D274F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B71FBD0209DDF16000D274F /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		5B71FBD2209DDF16000D274F /* ValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		5B71FBD6209DDF17000D274F /* Password.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		5B71FBD7209DDF17000D274F /* Password+validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Password+validate.swift"; sourceTree = "<group>"; };
+		5B71FBD9209DDF17000D274F /* SSID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSID.swift; sourceTree = "<group>"; };
+		5B71FBDB209DDF18000D274F /* SSID+validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSID+validate.swift"; sourceTree = "<group>"; };
+		5B71FBF3209DDF34000D274F /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		5B71FBF4209DDF34000D274F /* FormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
+		EA2160B30128B3E5CD519464 /* DifferentiaUnit.DictionaryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentiaUnit.DictionaryType.swift; sourceTree = "<group>"; };
+		EA2160BD315F901C7D12F1E3 /* Diffable+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable+Hashable.swift"; sourceTree = "<group>"; };
+		EA2160C28777744AD6B47F1A /* Diffable.EnumEntry+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable.EnumEntry+Equatable.swift"; sourceTree = "<group>"; };
+		EA2162036D54542475306C88 /* Diffable.EnumEntry+PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable.EnumEntry+PrettyPrintable.swift"; sourceTree = "<group>"; };
+		EA21622AFCBFF5AB5ECE9EE3 /* MirrorDiffKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MirrorDiffKit.swift; sourceTree = "<group>"; };
+		EA21629DA59B56DBE74BFFE6 /* Diffable+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable+Equatable.swift"; sourceTree = "<group>"; };
+		EA2162BFA9AECEEE77F112E6 /* DifferentiaUnit+PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DifferentiaUnit+PrettyPrintable.swift"; sourceTree = "<group>"; };
+		EA2163FAB522815B12FBA6DE /* DifferentiaUnit.SequenceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentiaUnit.SequenceType.swift; sourceTree = "<group>"; };
+		EA2164BDC82A9A6ACE9A426B /* DiffableSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableSequence.swift; sourceTree = "<group>"; };
+		EA21655933725D8EC2D2E11F /* DiffableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDictionary.swift; sourceTree = "<group>"; };
+		EA21657F90C8468ED2FDE8D6 /* DiffableSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableSet.swift; sourceTree = "<group>"; };
+		EA216659225F6C48C6C99CD4 /* Diffable+PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable+PrettyPrintable.swift"; sourceTree = "<group>"; };
+		EA2166728C09142C966FAC48 /* Diffable.diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.diff.swift; sourceTree = "<group>"; };
+		EA216709763A769009830075 /* ComparableDifferentiaUnits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparableDifferentiaUnits.swift; sourceTree = "<group>"; };
+		EA216736F1A9C94376E00A66 /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
+		EA21674CD7ADD9F16259BB0C /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
+		EA216779D2174F324AC83658 /* PrettyLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyLine.swift; sourceTree = "<group>"; };
+		EA2167C9B1F74B3A41602D91 /* DifferentiaUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentiaUnit.swift; sourceTree = "<group>"; };
+		EA2167FEC71E32B49145ED38 /* MIMEType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIMEType.swift; sourceTree = "<group>"; };
+		EA2168BCC3D2535C1060A08F /* RoughEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoughEquatable.swift; sourceTree = "<group>"; };
+		EA2169EA6B5163C65E2DCCD7 /* Diffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.swift; sourceTree = "<group>"; };
+		EA216A63B3184C789852F6A3 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		EA216AB1CBBF9C264BE1661D /* DiffableConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableConvertible.swift; sourceTree = "<group>"; };
+		EA216C0C3472868A7A76A9AC /* Diffable+RoughEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable+RoughEquatable.swift"; sourceTree = "<group>"; };
+		EA216CF75D4A97A84C1128B7 /* PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrintable.swift; sourceTree = "<group>"; };
+		EA216D3714F956480DF21D0F /* Diffable+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		EA216D9809F105CC9D9CD28D /* PlistDocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDocumentTests.swift; sourceTree = "<group>"; };
+		EA216DB875D16172BDE62D48 /* Diffable.EnumEntry+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diffable.EnumEntry+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		EA216E11001E8E569855A001 /* MobileConfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileConfigTests.swift; sourceTree = "<group>"; };
+		EA216E5C7011926FC4EE08D8 /* EnumCaseName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumCaseName.swift; sourceTree = "<group>"; };
+		EA216E7CB8A1475021DFCD7A /* PrettyPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrinter.swift; sourceTree = "<group>"; };
+		EA216E81AE99A1E266E1077F /* Diffable.from.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.from.swift; sourceTree = "<group>"; };
+		EA216EF09CC1E76AFBE8B74E /* TupleRepresentationDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleRepresentationDetector.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B71FBAE209DDEA0000D274F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B71FBB8209DDEA0000D274F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B71FBBC209DDEA0000D274F /* WiFiQRCodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2475E35BA3C0E7B1EC6340C7 /* WiFiQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				2475E79647527C073C626C71 /* WiFiQRCode+EncryptionType.swift */,
+				2475E64C2DA5C7BB6928833E /* WiFiQRCode+validate.swift */,
+				2475E42CA817ED5DC83EC023 /* WiFiQRCode.swift */,
+				2475EF201A9153F9FEB3AA70 /* Parser.swift */,
+				2475E18442FE447CAA0AE528 /* ParserCombinator.swift */,
+				2475EC73345CC8BC3BCAD008 /* MeCardParser.swift */,
+				2475ECBEBE19604A7E666DEF /* MeCardSyntax.swift */,
+			);
+			path = WiFiQRCode;
+			sourceTree = "<group>";
+		};
+		2475E4999AC4805780968C18 /* Installer */ = {
+			isa = PBXGroup;
+			children = (
+				2475E9B1073BC10569221CBC /* MobileConfig.Installer.swift */,
+				2475EDFB71EFC02B0768E64C /* URLOpener.swift */,
+			);
+			path = Installer;
+			sourceTree = "<group>";
+		};
+		2475E5429B5A5F1DF8CDBE4B /* MobileConfig */ = {
+			isa = PBXGroup;
+			children = (
+				2475E1A15B8F919BA07BA269 /* MobileConfig.swift */,
+				2475E0FA3B231BB1CBBE8ACE /* MobileConfig.WiFi.swift */,
+				2475E2E849952516DB5426E6 /* PlistSerializable.swift */,
+				2475E108F954022365749AA5 /* MobileConfig+from.swift */,
+				2475E4C6359DE2CB30B429E8 /* PlistDocument.swift */,
+				2475E4999AC4805780968C18 /* Installer */,
+			);
+			path = MobileConfig;
+			sourceTree = "<group>";
+		};
+		5B71FBA8209DDEA0000D274F = {
+			isa = PBXGroup;
+			children = (
+				5B71FBB4209DDEA0000D274F /* WiFiQRCodeKit */,
+				5B71FBBF209DDEA0000D274F /* WiFiQRCodeKitTests */,
+				5B71FBB3209DDEA0000D274F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B71FBB3209DDEA0000D274F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B71FBB2209DDEA0000D274F /* WiFiQRCodeKit.framework */,
+				5B71FBBB209DDEA0000D274F /* WiFiQRCodeKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B71FBB4209DDEA0000D274F /* WiFiQRCodeKit */ = {
+			isa = PBXGroup;
+			children = (
+				5B71FBD0209DDF16000D274F /* Formatter.swift */,
+				5B71FBD6209DDF17000D274F /* Password.swift */,
+				5B71FBD7209DDF17000D274F /* Password+validate.swift */,
+				5B71FBD9209DDF17000D274F /* SSID.swift */,
+				5B71FBDB209DDF18000D274F /* SSID+validate.swift */,
+				5B71FBD2209DDF16000D274F /* ValidationResult.swift */,
+				5B71FBB5209DDEA0000D274F /* WiFiQRCodeKit.h */,
+				5B71FBB6209DDEA0000D274F /* Info.plist */,
+				EA2167FEC71E32B49145ED38 /* MIMEType.swift */,
+				2475E5429B5A5F1DF8CDBE4B /* MobileConfig */,
+				2475E35BA3C0E7B1EC6340C7 /* WiFiQRCode */,
+			);
+			path = WiFiQRCodeKit;
+			sourceTree = "<group>";
+		};
+		5B71FBBF209DDEA0000D274F /* WiFiQRCodeKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B71FBF4209DDF34000D274F /* FormatterTests.swift */,
+				5B71FBF3209DDF34000D274F /* ParserTests.swift */,
+				5B71FBC0209DDEA0000D274F /* WiFiQRCodeKitTests.swift */,
+				5B71FBC2209DDEA0000D274F /* Info.plist */,
+				EA216E6EBEA4F3D34B351787 /* MirrorDiffKit */,
+				EA216D9809F105CC9D9CD28D /* PlistDocumentTests.swift */,
+				EA216E11001E8E569855A001 /* MobileConfigTests.swift */,
+			);
+			path = WiFiQRCodeKitTests;
+			sourceTree = "<group>";
+		};
+		EA216E6EBEA4F3D34B351787 /* MirrorDiffKit */ = {
+			isa = PBXGroup;
+			children = (
+				EA216A63B3184C789852F6A3 /* Util.swift */,
+				EA21674CD7ADD9F16259BB0C /* Dwifft.swift */,
+				EA2169EA6B5163C65E2DCCD7 /* Diffable.swift */,
+				EA216779D2174F324AC83658 /* PrettyLine.swift */,
+				EA21657F90C8468ED2FDE8D6 /* DiffableSet.swift */,
+				EA216736F1A9C94376E00A66 /* Transformer.swift */,
+				EA216E5C7011926FC4EE08D8 /* EnumCaseName.swift */,
+				EA2166728C09142C966FAC48 /* Diffable.diff.swift */,
+				EA216E81AE99A1E266E1077F /* Diffable.from.swift */,
+				EA21622AFCBFF5AB5ECE9EE3 /* MirrorDiffKit.swift */,
+				EA216E7CB8A1475021DFCD7A /* PrettyPrinter.swift */,
+				EA2168BCC3D2535C1060A08F /* RoughEquatable.swift */,
+				EA2167C9B1F74B3A41602D91 /* DifferentiaUnit.swift */,
+				EA216CF75D4A97A84C1128B7 /* PrettyPrintable.swift */,
+				EA2164BDC82A9A6ACE9A426B /* DiffableSequence.swift */,
+				EA2160BD315F901C7D12F1E3 /* Diffable+Hashable.swift */,
+				EA21629DA59B56DBE74BFFE6 /* Diffable+Equatable.swift */,
+				EA21655933725D8EC2D2E11F /* DiffableDictionary.swift */,
+				EA216AB1CBBF9C264BE1661D /* DiffableConvertible.swift */,
+				EA216C0C3472868A7A76A9AC /* Diffable+RoughEquatable.swift */,
+				EA216659225F6C48C6C99CD4 /* Diffable+PrettyPrintable.swift */,
+				EA216709763A769009830075 /* ComparableDifferentiaUnits.swift */,
+				EA216EF09CC1E76AFBE8B74E /* TupleRepresentationDetector.swift */,
+				EA2160C28777744AD6B47F1A /* Diffable.EnumEntry+Equatable.swift */,
+				EA2163FAB522815B12FBA6DE /* DifferentiaUnit.SequenceType.swift */,
+				EA2160B30128B3E5CD519464 /* DifferentiaUnit.DictionaryType.swift */,
+				EA2162BFA9AECEEE77F112E6 /* DifferentiaUnit+PrettyPrintable.swift */,
+				EA216D3714F956480DF21D0F /* Diffable+CustomStringConvertible.swift */,
+				EA2162036D54542475306C88 /* Diffable.EnumEntry+PrettyPrintable.swift */,
+				EA216DB875D16172BDE62D48 /* Diffable.EnumEntry+CustomStringConvertible.swift */,
+			);
+			path = MirrorDiffKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5B71FBAF209DDEA0000D274F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B71FBC3209DDEA0000D274F /* WiFiQRCodeKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5B71FBB1209DDEA0000D274F /* WiFiQRCodeKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B71FBC6209DDEA0000D274F /* Build configuration list for PBXNativeTarget "WiFiQRCodeKit" */;
+			buildPhases = (
+				5B71FBAD209DDEA0000D274F /* Sources */,
+				5B71FBAE209DDEA0000D274F /* Frameworks */,
+				5B71FBAF209DDEA0000D274F /* Headers */,
+				5B71FBB0209DDEA0000D274F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WiFiQRCodeKit;
+			productName = WiFiQRCodeKit;
+			productReference = 5B71FBB2209DDEA0000D274F /* WiFiQRCodeKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5B71FBBA209DDEA0000D274F /* WiFiQRCodeKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B71FBC9209DDEA0000D274F /* Build configuration list for PBXNativeTarget "WiFiQRCodeKitTests" */;
+			buildPhases = (
+				5B71FBB7209DDEA0000D274F /* Sources */,
+				5B71FBB8209DDEA0000D274F /* Frameworks */,
+				5B71FBB9209DDEA0000D274F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B71FBBE209DDEA0000D274F /* PBXTargetDependency */,
+			);
+			name = WiFiQRCodeKitTests;
+			productName = WiFiQRCodeKitTests;
+			productReference = 5B71FBBB209DDEA0000D274F /* WiFiQRCodeKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B71FBA9209DDEA0000D274F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Kuniwak;
+				TargetAttributes = {
+					5B71FBB1209DDEA0000D274F = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+					};
+					5B71FBBA209DDEA0000D274F = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 5B71FBAC209DDEA0000D274F /* Build configuration list for PBXProject "WiFiQRCodeKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B71FBA8209DDEA0000D274F;
+			productRefGroup = 5B71FBB3209DDEA0000D274F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B71FBB1209DDEA0000D274F /* WiFiQRCodeKit */,
+				5B71FBBA209DDEA0000D274F /* WiFiQRCodeKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B71FBB0209DDEA0000D274F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B71FBB9209DDEA0000D274F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B71FBAD209DDEA0000D274F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B71FBE9209DDF18000D274F /* Password.swift in Sources */,
+				5B71FBEE209DDF18000D274F /* SSID+validate.swift in Sources */,
+				5B71FBE3209DDF18000D274F /* Formatter.swift in Sources */,
+				5B71FBE5209DDF18000D274F /* ValidationResult.swift in Sources */,
+				5B71FBEA209DDF18000D274F /* Password+validate.swift in Sources */,
+				5B71FBEC209DDF18000D274F /* SSID.swift in Sources */,
+				EA21656022150A41D90D9402 /* MIMEType.swift in Sources */,
+				2475E5CE81082897ED489192 /* MobileConfig.swift in Sources */,
+				2475EED6957CF2A954F67A04 /* MobileConfig.WiFi.swift in Sources */,
+				2475EAADC68C1E708E46196C /* PlistSerializable.swift in Sources */,
+				2475EA25D9291DC473AD9EEF /* MobileConfig+from.swift in Sources */,
+				2475EA6205D9BC38EF8133D1 /* PlistDocument.swift in Sources */,
+				2475E73552C276BB6F28DC8A /* WiFiQRCode+EncryptionType.swift in Sources */,
+				2475E3B6BDF3C909EEFAC686 /* WiFiQRCode+validate.swift in Sources */,
+				2475E6CA13499A49AA243EAB /* WiFiQRCode.swift in Sources */,
+				2475EAC17C2D780D68CF4CEA /* Parser.swift in Sources */,
+				2475E48844C99463A4277FDF /* ParserCombinator.swift in Sources */,
+				2475E04414C7D72BB0B7F4D6 /* MeCardParser.swift in Sources */,
+				2475E634FB0F5EF9FFE2DC83 /* MeCardSyntax.swift in Sources */,
+				2475EF61BA98EA5598B1CA32 /* MobileConfig.Installer.swift in Sources */,
+				2475E81EAF15FA5E2F70138D /* URLOpener.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B71FBB7209DDEA0000D274F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B71FBC1209DDEA0000D274F /* WiFiQRCodeKitTests.swift in Sources */,
+				5B71FBF8209DDF34000D274F /* FormatterTests.swift in Sources */,
+				5B71FBF7209DDF34000D274F /* ParserTests.swift in Sources */,
+				EA21626A2394A7D3C3D7ABCA /* Util.swift in Sources */,
+				EA216B92F51691B55E62908F /* Dwifft.swift in Sources */,
+				EA216CE32B27A0D606CC0133 /* Diffable.swift in Sources */,
+				EA216CF42EBD7126F22D7AF7 /* PrettyLine.swift in Sources */,
+				EA216F351C594C787F2EFB13 /* DiffableSet.swift in Sources */,
+				EA216B7A7FC8673CD7B2B73C /* Transformer.swift in Sources */,
+				EA2163563772B7D936C747D0 /* EnumCaseName.swift in Sources */,
+				EA21601F645A8EF464CA4279 /* Diffable.diff.swift in Sources */,
+				EA216E06D2BA17B39D3E898D /* Diffable.from.swift in Sources */,
+				EA2161260B110F759000ED64 /* MirrorDiffKit.swift in Sources */,
+				EA216CBED293C99FF1D5EB30 /* PrettyPrinter.swift in Sources */,
+				EA216773BE17E03C8EFE0DD3 /* RoughEquatable.swift in Sources */,
+				EA216F7A298DCC377D463214 /* DifferentiaUnit.swift in Sources */,
+				EA21610BCD672569380B06DF /* PrettyPrintable.swift in Sources */,
+				EA216D64D345DF5258FC90C4 /* DiffableSequence.swift in Sources */,
+				EA2160899A2DB3851248FECD /* Diffable+Hashable.swift in Sources */,
+				EA21649BDD5E2B8D0AE2E8D8 /* Diffable+Equatable.swift in Sources */,
+				EA2160A86107B097363E64ED /* DiffableDictionary.swift in Sources */,
+				EA2168222127EBE5CFD34FB5 /* DiffableConvertible.swift in Sources */,
+				EA2165826AE9923A94E1144E /* Diffable+RoughEquatable.swift in Sources */,
+				EA21678CEEBF133B7029EE75 /* Diffable+PrettyPrintable.swift in Sources */,
+				EA2164F54DCA69DB20E10DD4 /* ComparableDifferentiaUnits.swift in Sources */,
+				EA21607C40D936949E5EE8F8 /* TupleRepresentationDetector.swift in Sources */,
+				EA216BC14D1CFCEE1FFA5233 /* Diffable.EnumEntry+Equatable.swift in Sources */,
+				EA21663BFCAD7E5653128818 /* DifferentiaUnit.SequenceType.swift in Sources */,
+				EA216BC8B166884BC7F8FE12 /* DifferentiaUnit.DictionaryType.swift in Sources */,
+				EA216A3C3C543F6293EBEC10 /* DifferentiaUnit+PrettyPrintable.swift in Sources */,
+				EA21603E79C613797A7CCBF5 /* Diffable+CustomStringConvertible.swift in Sources */,
+				EA2161B5FB14DA74F7893DF5 /* Diffable.EnumEntry+PrettyPrintable.swift in Sources */,
+				EA216A0C25CC19ABB83588C6 /* Diffable.EnumEntry+CustomStringConvertible.swift in Sources */,
+				EA21663C90C84582D81CEECB /* PlistDocumentTests.swift in Sources */,
+				EA216B7053936B4126DC7CC2 /* MobileConfigTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B71FBBE209DDEA0000D274F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B71FBB1209DDEA0000D274F /* WiFiQRCodeKit */;
+			targetProxy = 5B71FBBD209DDEA0000D274F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5B71FBC4209DDEA0000D274F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5B71FBC5209DDEA0000D274F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5B71FBC7209DDEA0000D274F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WiFiQRCodeKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B71FBC8209DDEA0000D274F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WiFiQRCodeKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B71FBCA209DDEA0000D274F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WiFiQRCodeKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B71FBCB209DDEA0000D274F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WiFiQRCodeKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuniwak.WiFiQRCodeKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B71FBAC209DDEA0000D274F /* Build configuration list for PBXProject "WiFiQRCodeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B71FBC4209DDEA0000D274F /* Debug */,
+				5B71FBC5209DDEA0000D274F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B71FBC6209DDEA0000D274F /* Build configuration list for PBXNativeTarget "WiFiQRCodeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B71FBC7209DDEA0000D274F /* Debug */,
+				5B71FBC8209DDEA0000D274F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B71FBC9209DDEA0000D274F /* Build configuration list for PBXNativeTarget "WiFiQRCodeKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B71FBCA209DDEA0000D274F /* Debug */,
+				5B71FBCB209DDEA0000D274F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B71FBA9209DDEA0000D274F /* Project object */;
+}
