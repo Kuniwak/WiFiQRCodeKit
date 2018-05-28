@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
   WiFiQRCodeKit provides the Wi-Fi configuration feature via QR code for the situations.
-  It can work with iOS 9.3+.
+  It can work with iOS 8.0+.
   DESC
 
   s.homepage     = "https://github.com/Kuniwak/WiFiQRCodeKit"
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   s.swift_version = "4.1"
-  s.platform      = :ios, "9.3"
+  s.platform      = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
