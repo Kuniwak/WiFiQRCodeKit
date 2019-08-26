@@ -1,5 +1,5 @@
 public extension WiFiQRCode {
-    public enum EncryptionType: Equatable {
+    enum EncryptionType: Equatable {
         case none
         case wep(Password)
         case wpa(Password)

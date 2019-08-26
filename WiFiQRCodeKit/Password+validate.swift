@@ -1,5 +1,5 @@
 public extension Password {
-    public static func validate(passwordText: String) -> ValidationResult<Password, FailureReason> {
+    static func validate(passwordText: String) -> ValidationResult<Password, FailureReason> {
         guard !passwordText.isEmpty else {
             return .invalid(because: .empty)
         }
@@ -8,7 +8,7 @@ public extension Password {
     }
 
 
-    public enum FailureReason: Error {
+    enum FailureReason: Error {
         case empty
     }
 }

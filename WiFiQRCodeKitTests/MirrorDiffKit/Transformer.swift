@@ -13,111 +13,34 @@ func transform(fromAny x: Any?) -> Diffable {
 
 
 private func transformFromNonOptionalAny(_ x: Any) -> Diffable {
-    if let y = x as? NSNull {
-        return Diffable.from(y)
+    if let y = x as? DiffableConvertible {
+        return y.diffable
     }
 
-    // MARK: - Integer subtypes
-    if let y = x as? Int {
-        return Diffable.from(y)
+    let type = Swift.type(of: x)
+
+    if type == NSNull.self {
+        return .null
     }
 
-    if let y = x as? Int8 {
-        return Diffable.from(y)
+    if isNumberLike(x) {
+        return .number(type: HashableType(type: type), value: "\(x)")
     }
 
-    if let y = x as? Int16 {
-        return Diffable.from(y)
+    if isStringLike(x) {
+        return .string(type: HashableType(type: type), content: "\(x)")
     }
 
-    if let y = x as? Int32 {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? Int64 {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? UInt {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? UInt8 {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? UInt16 {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? UInt32 {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? UInt64 {
-        return Diffable.from(y)
-    }
-
-
-    // MARK: - FloatingPoint subtypes
-    if let y = x as? Double {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? Float {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? Float32 {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? Float64 {
-        return Diffable.from(y)
-    }
-
-    #if arch(x86_64) || arch(i386)
-        if let y = x as? Float80 {
-            return Diffable.from(y)
-        }
-    #endif
-
-
-    // MARK: - String related types
-    if let y = x as? Character {
-        return Diffable.from(y)
-    }
-
-    if let y = x as? String {
-        return Diffable.from(y)
-    }
-
-
-    // MARK: - Bool subtypes
     if let y = x as? Bool {
-        return Diffable.from(y)
+        return .bool(y)
     }
-
 
     if let y = x as? Date {
-        return Diffable.from(y)
+        return .date(y)
     }
-
 
     if let y = x as? URL {
-        return Diffable.from(y)
-    }
-
-
-    // XXX: Avoid the following error (at least, Swift 3.0.2 or earlier):
-    //
-    // > Protocol "SpecialController" can only be used as a generic constraint
-    // > because it has Self or associated type requirements.
-    //
-    // So, we can only try to cast concrete collection types. See all concrete
-    // types in SDK: http://swiftdoc.org/v3.0/protocol/Collection/hierarchy/
-    if let y = x as? [Any] {
-        return Diffable.from(y)
+        return .url(y)
     }
 
     return transformMirror(of: x)
@@ -126,68 +49,104 @@ private func transformFromNonOptionalAny(_ x: Any) -> Diffable {
 func transformMirror(of x: Any) -> Diffable {
     do {
         let mirror = Mirror(reflecting: x)
+        
+        if let displayStyle = mirror.displayStyle {
+            switch displayStyle {
+                
+            case .optional:
+                // XXX: Handle `nil` in a variable typed Any here.
+                //
+                // (lldb) po let $var: Any? = nil
+                // (lldb) po let $container: Any = $var
+                // (lldb) po $container == nil
+                // false <- FUUUUUUUUUUUUU
+                //
+                // (lldb) po Mirror(reflecting: $container)
+                // Mirror for Optional<Any>
+                //
+                // Therefore we can handle it by only using Mirrors.
+                if let firstChild = mirror.children.first {
+                    return transform(fromAny: firstChild.value)
+                }
+                else {
+                    return .none
+                }
+                
+            case .tuple:
+                let entries = transformFromTupleMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .tuple(type: .type(of: x), entries: entries)
+                
+            case .set:
+                let elements = transformFromNonLabeledMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .set(type: .type(of: x), elements: Set(elements))
+                
+            case .collection:
+                let elements = transformFromNonLabeledMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .collection(type: .type(of: x), elements: elements)
+                
+            case .dictionary:
+                let entries = try transformFromDictionaryEntryMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .dictionary(type: .type(of: x), entries: Set(entries.map(Diffable.DictionaryEntry.init(entry:))))
+                
+            case .enum:
+                let associated = transformFromEnumMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .anyEnum(
+                    type: .type(of: x),
+                    caseName: try .from(mirror: mirror, original: x),
+                    associated: associated
+                )
+                
+            case .struct:
+                let entries = try transformFromLabeledMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .anyStruct(type: .type(of: x), entries: entries)
+                
+            case .class:
+                let entries = try transformFromLabeledMirror(of: mirror)
+                // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+                // the original type if x is a CustomReflectable.
+                return .anyClass(type: .type(of: x), entries: entries)
 
-        switch mirror.displayStyle {
-
-        case .some(.optional):
-            // XXX: Handle `nil` in a variable typed Any here.
-            //
-            // (lldb) po let $var: Any? = nil
-            // (lldb) po let $container: Any = $var
-            // (lldb) po $container == nil
-            // false <- FUUUUUUUUUUUUU
-            //
-            // (lldb) po Mirror(reflecting: $container)
-            // Mirror for Optional<Any>
-            //
-            // Therefore we can handle it by only using Mirrors.
-            if let firstChild = mirror.children.first {
-                return transform(fromAny: firstChild.value)
+            @unknown default:
+                return .unrecognizable(debugInfo: "reason=UNKNOWN_DISPLAY_STYLE, displayStyle=`\(displayStyle)`, description=`\(x)`")
             }
-            else {
-                return .none
-            }
-
-        case .some(.tuple):
-            let entries = transformFromTupleMirror(of: mirror)
-            return .tuple(entries)
-
-        case .some(.set):
-            let entries = transformFromNonLabeledMirror(of: mirror)
-            return .set(entries)
-
-        case .some(.dictionary):
-            let entries = try transformFromDictionaryEntryMirror(of: mirror)
-            return .dictionary(entries)
-
-        case .some(.enum):
-            let associated = transformFromEnumMirror(of: mirror)
-
-            return .anyEnum(
-                type: mirror.subjectType,
-                caseName: try .from(mirror: mirror, original: x),
-                associated: associated
-            )
-
-        case .some(.struct):
-            let entries = try transformFromLabeledMirror(of: mirror)
-            return .anyStruct(type: mirror.subjectType, entries: entries)
-
-        case .some(.class):
-            let entries = try transformFromLabeledMirror(of: mirror)
-            return .anyClass(type: mirror.subjectType, entries: entries)
-
-        case .none:
-            // XXX: I don't know why but Generic structs and classes do not have .displayStyle.
-            let entries = try transformFromLabeledMirror(of: mirror)
-            return .generic(type: mirror.subjectType, entries: entries)
-
-        default:
-            return .notSupported(value: x)
         }
+    
+        // NOTE: The types can have nil .displayType are only MetaTypes and OpaqueImpls and some CustomReflectables.
+        // https://github.com/apple/swift/blob/3ec7fc169d21f805366c19c0f8e1d437646c6149/stdlib/public/runtime/ReflectionMirror.mm#L512
+        // https://github.com/apple/swift/blob/c35d508600516b892732e2fd3f0f0a17ca4562ba/stdlib/public/core/ReflectionMirror.swift#L154
+
+        if let y = x as? Any.Type {
+            return .anyType(HashableType(type: y))
+        }
+
+        // NOTE: .subjectType should not to be used. Because .subjectType can be different from
+        // the original type if x is a CustomReflectable.
+        let trulyType = HashableType(of: x)
+        let entries = try transformFromLabeledMirror(of: mirror)
+
+        if let y = x as? CustomReflectable {
+            guard !entries.isEmpty else {
+                return .minorCustomReflectable(type: trulyType, content: .empty(description: "\(y)"))
+            }
+            return .minorCustomReflectable(type: trulyType, content: .notEmpty(entries: entries))
+        }
+
+        return .unrecognizable(debugInfo: "reason=UNKNOWN_TYPE, type=`\(trulyType)`, description=`\(x)`")
     }
     catch {
-        return .unrecognizable(debugInfo: "error=`\(error)`, value=`\(x)`")
+        return .unrecognizable(debugInfo: "reason=TRANSFORM_ERROR, error=`\(error)`, value=`\(x)`")
     }
 }
 
