@@ -3,23 +3,24 @@ import Foundation
 
 
 struct DiffableDictionary {
+    let type: HashableType
     let dictionary: [String: Diffable]
 
 
-    init(_ dictionary: [String: Diffable]) {
+    init(type: HashableType, dictionary: [String: Diffable]) {
+        self.type = type
         self.dictionary = dictionary
     }
 
 
-    static func from(diffableTuples: [(key: Diffable, value: Diffable)]) -> DiffableDictionary {
+    static func from(type: HashableType, entries: Set<Diffable.DictionaryEntry>) -> DiffableDictionary {
         var dictionary: [String: Diffable] = [:]
 
-        diffableTuples.forEach { diffableTuple in
-            let (key, value) = diffableTuple
-            dictionary[key.description] = value
+        entries.forEach { entry in
+            dictionary[entry.key.description] = entry.value
         }
 
-        return DiffableDictionary(dictionary)
+        return DiffableDictionary(type: type, dictionary: dictionary)
     }
 
 
@@ -54,12 +55,5 @@ struct DiffableDictionary {
         }
 
         return result
-    }
-}
-
-
-extension DiffableDictionary: Equatable {
-    static func == (_ lhs: DiffableDictionary, _ rhs: DiffableDictionary) -> Bool {
-        return lhs.dictionary == rhs.dictionary
     }
 }

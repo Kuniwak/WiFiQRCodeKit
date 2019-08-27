@@ -51,14 +51,14 @@ extension MobileConfig {
 
 
 fileprivate extension MobileConfig.PayloadIdentifier {
-    fileprivate static func from(ssid: SSID) -> MobileConfig.PayloadIdentifier {
+    static func from(ssid: SSID) -> MobileConfig.PayloadIdentifier {
         return .init(identifier: ssid.octetString)
     }
 }
 
 
 fileprivate extension WiFiMobileConfig.EncryptionType {
-    fileprivate static func from(encryptionType: WiFiQRCode.EncryptionType) -> WiFiMobileConfig.EncryptionType {
+    static func from(encryptionType: WiFiQRCode.EncryptionType) -> WiFiMobileConfig.EncryptionType {
         switch encryptionType {
         case .none:
             return .none

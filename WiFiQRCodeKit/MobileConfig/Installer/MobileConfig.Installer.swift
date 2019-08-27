@@ -3,11 +3,11 @@ import UIKit
 
 
 public extension MobileConfig {
-    public typealias DistributionServer = MobileConfigDistributionServer
-    public typealias DistributionServerState = MobileConfigDistributionServerState
+    typealias DistributionServer = MobileConfigDistributionServer
+    typealias DistributionServerState = MobileConfigDistributionServerState
 
 
-    public class Installer {
+    class Installer {
         fileprivate let distributionServer: DistributionServer
         fileprivate let urlOpener: URLOpener
         fileprivate let distributionServerStatus: DistributionServerState
@@ -46,12 +46,12 @@ public extension MobileConfig {
 
 
         public func keepDistributionServerForBackground(for application: UIApplication) {
-            var taskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+            var taskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
 
             taskIdentifier = application.beginBackgroundTask(withName: "Awaiting install a provisioning profile") {
                 DispatchQueue.main.async {
-                    application.endBackgroundTask(taskIdentifier)
-                    taskIdentifier = UIBackgroundTaskInvalid
+                    application.endBackgroundTask(convertToUIBackgroundTaskIdentifier(taskIdentifier.rawValue))
+                    taskIdentifier = UIBackgroundTaskIdentifier.invalid
                 }
             }
         }
@@ -85,4 +85,9 @@ public enum MobileConfigDistributionServerState: Equatable {
     case failed(because: FailureReason)
 
     public typealias FailureReason = String
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
+	return UIBackgroundTaskIdentifier(rawValue: input)
 }
