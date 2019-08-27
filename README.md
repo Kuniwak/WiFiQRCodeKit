@@ -3,7 +3,7 @@ WiFiQRCodeKit
 ![Swift Compatible](https://img.shields.io/badge/Swift%20version-5-brightgreen.svg)
 [![CocoaPods Status](https://img.shields.io/cocoapods/v/WiFiQRCodeKit.svg)](https://cocoapods.org/pods/WiFiQRCodeKit)
 ![Carhthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)
-[![Build Status](https://www.bitrise.io/app/10d15cda3905395a/status.svg?token=RoO7CaqzdZ8oYZnJ3rBV-g&branch=master)](https://www.bitrise.io/app/10d15cda3905395a)
+[![Build Status](https://app.bitrise.io/app/10d15cda3905395a/status.svg?token=RoO7CaqzdZ8oYZnJ3rBV-g&branch=master)](https://app.bitrise.io/app/10d15cda3905395a)
 
 [In iOS 11, we can easily configure Wi-Fi networks by reading QR code for Wi-Fi](https://developer.apple.com/videos/play/fall2017/206/).
 But some reasonable situations that is keeping iOS version lower than iOS 11 can exist.
