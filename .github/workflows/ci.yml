@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  xcodebuild:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select an iOS simulator
+        run: |
+          udid="$(xcrun simctl list devices available --json \
+            | jq -r '[.devices | to_entries[] | select(.key | test("iOS")) | .value[] | select(.name | startswith("iPhone"))][0].udid')"
+          echo "DESTINATION=id=${udid}" >> "$GITHUB_ENV"
+      - name: Test
+        run: |
+          xcodebuild test \
+            -project WiFiQRCodeKit.xcodeproj \
+            -scheme WiFiQRCodeKit-iOS \
+            -destination "$DESTINATION" \
+            CODE_SIGNING_ALLOWED=NO
+
+  podspec:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+      - name: Lint the podspec
+        run: bundle exec pod lib lint
