@@ -9,7 +9,7 @@ WiFiQRCodeKit
 But some reasonable situations that is keeping iOS version lower than iOS 11 can exist.
 
 WiFiQRCodeKit provides the Wi-Fi configuration feature via QR code for the situations.
-It can work with iOS 8.0+.
+It can work with iOS 12.0+.
 
 
 
@@ -34,7 +34,7 @@ pod 'WiFiQRCodeKit', '~> 1.0'
 Requirements
 ------------
 
-- iOS 8.0+
+- iOS 12.0+
 
 And WiFiQRCodeKit requires 2 other libraries:
 
